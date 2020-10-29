@@ -1,6 +1,7 @@
 import React from "react";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
+import List from "./List";
 import "./App.css";
 
 const client = new ApolloClient({
@@ -10,8 +11,9 @@ const client = new ApolloClient({
 const App = () => (
   <ApolloProvider client={client}>
     <div>
-      <h1>Domaci ukol</h1>
+      <h1>Seznam zemí</h1>
     </div>
+    <List />
   </ApolloProvider>
 );
 
