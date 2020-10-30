@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+body {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-align: center;
+  background: url("https://images.unsplash.com/photo-1531257336103-a2cd558206fc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.main {
+  border-radius: 5px;
+  background-color: rgba(19, 18, 18, 0.6);
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+  width: 80%;
+  margin: 0 auto;
+  color: #fff;
+  h1 {
+    font-size: 100px;
+    text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
+  }
+}
+.Country_list {
+  font-size: 20px;
+
+  select {
+    border: none;
+    outline-style: none;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+    width: 500px;
+    height: 50px;
+  }
+  h3 {
+    font-size: 30px;
+  }
+}

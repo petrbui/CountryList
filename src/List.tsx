@@ -7,6 +7,7 @@ interface Country {
   name: string;
   code: string;
   capital: string;
+  emoji: string;
   continent: {
     name: string;
   };
@@ -58,7 +59,7 @@ function List() {
   if (loading) return <p>Načítání...</p>;
 
   return (
-    <div className='Country_list)'>
+    <div className='Country_list'>
       <select
         defaultValue={continentCode}
         onChange={(event) => setValue(event.target.value)}
@@ -72,11 +73,14 @@ function List() {
       </select>
       {data?.countries.map((c) => (
         <div>
-          <h3>{c.name}</h3>
+          <h3>
+            {c.name}
+            {c.emoji}
+          </h3>
           <p className='capital'>
             The capital city is <b>{c.capital}</b>
           </p>
-          <p className='capital'>
+          <p className='language'>
             Native languages in country is <b>{c.languages[0].name}</b>
           </p>
         </div>
