@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { FunctionComponent, useState } from "react";
+import React, { useState } from "react";
 import { useQuery } from "react-apollo";
 import gql from "graphql-tag";
 
@@ -60,7 +60,7 @@ function List() {
   return (
     <div className='Country_list)'>
       <select
-        defaultValue='EU'
+        defaultValue={continentCode}
         onChange={(event) => setValue(event.target.value)}
       >
         <option value='AF'>Africa</option>

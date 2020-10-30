@@ -13,6 +13,7 @@ const App = () => (
     <div>
       <h1>List of countries</h1>
     </div>
+
     <List />
   </ApolloProvider>
 );
