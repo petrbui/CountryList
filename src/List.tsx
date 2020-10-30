@@ -3,7 +3,6 @@ import React, { FunctionComponent, useState } from "react";
 import { useQuery } from "react-apollo";
 import gql from "graphql-tag";
 
-var test: any;
 interface Country {
   name: string;
   code: string;
@@ -11,15 +10,16 @@ interface Country {
   continent: {
     name: string;
   };
-  language: {
-    name: string;
-  };
+  languages: Languages[];
+}
+interface Languages {
+  name: string;
+  native: string;
 }
 
 interface CountryData {
-  countries: Country;
+  countries: Country[];
 }
-
 interface CountryVariable {
   code: string;
 }
@@ -44,7 +44,7 @@ const COUNTRIES_QUERY = gql`
   }
 `;
 
-const List: FunctionComponent = () => {
+function List() {
   const [continentCode, setValue] = useState("EU");
   const { data, loading } = useQuery<CountryData, CountryVariable>(
     COUNTRIES_QUERY,
@@ -57,8 +57,6 @@ const List: FunctionComponent = () => {
 
   if (loading) return <p>Načítání...</p>;
 
-  const { countries } = data;
-
   return (
     <div className='Country_list)'>
       <select
@@ -66,28 +64,25 @@ const List: FunctionComponent = () => {
         onChange={(event) => setValue(event.target.value)}
       >
         <option value='AF'>Africa</option>
-        <option value='AN'>Antarctica</option>
         <option value='AS'>Asia</option>
         <option value='EU'>Europe</option>
         <option value='NA'>North america</option>
         <option value='OC'>Oceania</option>
         <option value='SA'>South america</option>
       </select>
-      {countries.map((c: any, i: number) => (
-        <div key={i}>
-          <h3>
-            {c.name} {c.emoji}
-          </h3>
+      {data?.countries.map((c) => (
+        <div>
+          <h3>{c.name}</h3>
           <p className='capital'>
-            Capital city is <b>{c.capital}</b>
+            The capital city is <b>{c.capital}</b>
           </p>
-          <p className='language'>
-            mluví se tam <b>{c.languages.name}</b>
+          <p className='capital'>
+            Native languages in country is <b>{c.languages[0].name}</b>
           </p>
         </div>
       ))}
     </div>
   );
-};
+}
 
 export default List;
